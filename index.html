@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/shoppingreact/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plantopia - Your Houseplant Store</title>
+    <meta name="keywords" content="Vite, React, plants, gardening, Air Purifying Plants, Aromatic Fragrant Plants, Insect Repellent Plants, Medicinal Plants, Low Maintenance Plants" />
+    <!-- Tailwind CSS CDN - Ensures Tailwind classes work -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter font for consistent typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      /* Global styles for overall layout and font */
+      html, body, #root {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Prevents horizontal scroll caused by page transitions */
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+
+      /* Custom scrollbar styling for the About Us section on Landing Page */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+
+      /* GooeyNav Specific Global CSS for Animations and Filters */
+      /* These cannot be easily translated to inline Tailwind classes */
+      .filter-blur-7 { filter: blur(7px) contrast(100) blur(0); } /* Applied to the GooeyNav filter effect */
+
+      /* Keyframes for GooeyNav particles - essential for the animation */
+      @keyframes particle {
+        0% { transform: rotate(0deg) translate(var(--start-x), var(--start-y)); opacity: 1; animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); }
+        70% { transform: rotate(calc(var(--rotate) * 0.5)) translate(calc(var(--end-x) * 1.2), calc(var(--end-y) * 1.2)); opacity: 1; animation-timing-function: ease; }
+        85% { transform: rotate(calc(var(--rotate) * 0.66)) translate(var(--end-x), var(--end-y)); opacity: 1; }
+        100% { transform: rotate(calc(var(--rotate) * 1.2)) translate(calc(var(--end-x) * 0.5), calc(var(--end-y) * 0.5)); opacity: 1; }
+      }
+      @keyframes point {
+        0% { transform: scale(0); opacity: 0; animation-timing-function: cubic-bezier(0.55, 0, 1, 0.45); }
+        25% { transform: scale(calc(var(--scale) * 0.25)); }
+        38% { opacity: 1; }
+        65% { transform: scale(var(--scale)); opacity: 1; animation-timing-function: ease; }
+        85% { transform: scale(var(--scale)); opacity: 1; }
+        100% { transform: scale(0); opacity: 0; }
+      }
+      /* Animation classes for GooeyNav particles, applied dynamically */
+      .animate-particle { animation: particle var(--time) ease 1 -350ms; }
+      .animate-point { animation: point var(--time) ease 1 -350ms; }
+
+      /* Custom utility classes from original CSS that are not direct Tailwind equivalents */
+      .shadow-text { text-shadow: 0 1px 1px hsl(205deg 30% 10% / 0.2); }
+      .shadow-custom-nav-item { box-shadow: 0 0 0.5px 1.5px transparent; }
+      .shadow-custom-nav-item:focus-within:has(:focus-visible) { box-shadow: 0 0 0.5px 1.5px white; }
+
+      /* Custom clamp font size for ScrollReveal headings */
+      .text-clamp-lg {
+        font-size: clamp(1.6rem, 4vw, 3rem);
+      }
+    </style>
+    <script type="module" crossorigin src="/shoppingreact/assets/index-zicxfEVx.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
