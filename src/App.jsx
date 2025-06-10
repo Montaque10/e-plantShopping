@@ -19,20 +19,28 @@ export default function App() {
     // When on the 'landing' page, scrolling is disabled. Otherwise, it's enabled.
     useEffect(() => {
         if (currentPage === 'landing') {
-            // Disable vertical scrolling when on the landing page for a full-screen experience.
-            document.body.style.overflowY = 'hidden';
-            // Also ensure the HTML element does not overflow, as some browsers might need this.
-            document.documentElement.style.overflowY = 'hidden';
+            // Prevent scrolling on the landing page
+            document.body.style.overflow = 'hidden';
+            document.body.style.position = 'fixed';
+            document.body.style.width = '100%';
+            document.body.style.top = '0';
+            document.documentElement.style.overflow = 'hidden';
         } else {
-            // Enable vertical scrolling for other pages (ProductList, Cart)
-            document.body.style.overflowY = 'auto';
-            document.documentElement.style.overflowY = 'auto';
+            // Enable scrolling for other pages
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            document.documentElement.style.overflow = '';
         }
-        // Cleanup function: This runs when the component unmounts or before the effect re-runs.
-        // It ensures scrolling is reset to 'auto' when the component is no longer active.
+
+        // Cleanup function
         return () => {
-            document.body.style.overflowY = 'auto';
-            document.documentElement.style.overflowY = 'auto';
+            document.body.style.overflow = '';
+            document.body.style.position = '';
+            document.body.style.width = '';
+            document.body.style.top = '';
+            document.documentElement.style.overflow = '';
         };
     }, [currentPage]); // Dependency array: this effect re-runs whenever `currentPage` changes.
 
